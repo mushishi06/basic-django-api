@@ -65,24 +65,24 @@ The admin access is Username: `admin`, Password: `a1b2c3d4`
 
 This API accept two entries point:
 
-	- `GET` on  `/item` give a list of active items.
+- `GET` on  `/item` give a list of active items.
 
-	- `POST` on  `/item` create an active item. The minimum required is `{ "name": "spoon", "code": "SPN"}`
+- `POST` on  `/item` create an active item. The minimum required is `{ "name": "spoon", "code": "SPN"}`
 
-	- `GET` on  `/item/{id}` give a the detail of the item.
+- `GET` on  `/item/{id}` give a the detail of the item.
 
-	- `PUT` on  `/item/{id}` Update the item.
+- `PUT` on  `/item/{id}` Update the item.
 
-	- `DELETE` on  `/item/{id}` Delete the item.
-
-
-	- `GET` on  `/category` give a list of categories.
-
-	- `POST` on  `/category` create a category. The minimum required is `{ "name": "appliance"}`
-
-	- `GET` on  `/category/{id}` give a the detail of the category.
-
-	- `PUT` on  `/category/{id}` Update the category.
+- `DELETE` on  `/item/{id}` Delete the item.
 
 
-	- `GET` on  `/category/{name}` give a list of active items for this category.
+- `GET` on  `/category` give a list of categories.
+
+- `POST` on  `/category` create a category. The minimum required is `{ "name": "appliance"}`
+
+- `GET` on  `/category/{id}` give a the detail of the category.
+
+- `PUT` on  `/category/{id}` Update the category.
+
+
+- `GET` on  `/category/{name}` give a list of active items for this category.
