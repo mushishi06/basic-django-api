@@ -1,7 +1,8 @@
 from categories.models import Category
-from categories.serializers import CategorySerializer, ItemsCategorySerializer
+from categories.serializers import CategorySerializer
 
-# from items.serializers import ItemSerializer
+from items.models import Item
+from items.serializers import ItemSerializer
 
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -57,8 +58,8 @@ def category_search(request, pk, format=None):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        items = category.get_items()
-        print(items)
-        # serializer = ItemSerializer(items, many=True)
-        serializer = ItemsCategorySerializer(items, many=True)
+        items = Item.get_active(category=category)
+        print("items")
+        serializer = ItemSerializer(items, many=True)
+        # serializer = ItemsCategorySerializer(items, many=True)
         return Response(serializer.data)

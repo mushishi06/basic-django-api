@@ -18,12 +18,12 @@ class CategoryAdminForm(forms.ModelForm):
         return name
 
 
-class ItemsCategoryInline(admin.TabularInline):
-    model = models.ItemsCategory
-    extra = 0
+# class ItemsCategoryInline(admin.TabularInline):
+#     model = models.ItemsCategory
+#     extra = 0
 
-    def has_delete_permission(self, request, obj=None):
-        return True
+#     def has_delete_permission(self, request, obj=None):
+#         return True
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -31,14 +31,14 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = ('active',)
     list_display = ('name', 'active')
     form = CategoryAdminForm
-    inlines = [ItemsCategoryInline]
+    # inlines = [ItemsCategoryInline]
 
 
-class ItemsCategoryAdmin(admin.ModelAdmin):
-    search_fields = ['category__name', 'item__name', 'item__code']
-    list_filter = ('category',)
-    # list_display = ('name', 'active')
+# class ItemsCategoryAdmin(admin.ModelAdmin):
+#     search_fields = ['category__name', 'item__name', 'item__code']
+#     list_filter = ('category',)
+#     # list_display = ('name', 'active')
 
 
 admin.site.register(models.Category, CategoryAdmin)
-admin.site.register(models.ItemsCategory, ItemsCategoryAdmin)
+# admin.site.register(models.ItemsCategory, ItemsCategoryAdmin)

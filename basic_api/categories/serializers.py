@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from items.serializers import ItemSerializer
+# from items.serializers import ItemSerializer
 
 from . import models
 
@@ -17,10 +17,10 @@ class CategorySerializer(serializers.ModelSerializer):
         return name
 
 
-class ItemsCategorySerializer(serializers.ModelSerializer):
-    # category = serializers.StringRelatedField()
-    item = ItemSerializer(many=True)
+# class ItemsCategorySerializer(serializers.ModelSerializer):
+#     # category = serializers.StringRelatedField()
+#     item = ItemSerializer(many=True)
 
-    class Meta:
-        model = models.ItemsCategory
-        fields = ('item',)
+#     class Meta:
+#         model = models.ItemsCategory
+#         fields = ('item',)

@@ -1,3 +1,5 @@
+from categories.models import Category
+
 from django.db import models
 
 from django.dispatch import receiver
@@ -8,6 +10,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100, blank=False, unique=True)
     code = models.CharField(max_length=5, blank=False, unique=True)
     active = models.BooleanField(default=True)
+    category = models.ManyToManyField(Category)
 
     class Meta:
         ordering = ('created',)
