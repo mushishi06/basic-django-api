@@ -8,14 +8,16 @@ class ItemSerializer(serializers.ModelSerializer):
         model = Item
         fields = ('id', 'name', 'code', 'active')
 
-    # def validate_name(self):
-    #     name = self.cleaned_data['name'].lower()
-    #     if Item.objects.filter(name=name).exists():
-    #         raise serializers.ValidationError("This name already exist.")
-    #     return name
+    def validate_name(self, value):
+        """Overide Validate to check if unique on API POST."""
+        value = value.lower()
+        if Item.objects.filter(name=value).exists():
+            raise serializers.ValidationError("This name already exist.")
+        return value
 
-    # def validate_code(self):
-    #     code = self.cleaned_data['code'].upper()
-    #     if Item.objects.filter(code=code).exists():
-    #         raise serializers.ValidationError("This code already exist.")
-    #     return code
+    def validate_code(self, value):
+        """Overide Validate to check if unique on API POST."""
+        value = value.upper()
+        if Item.objects.filter(code=value).exists():
+            raise serializers.ValidationError("This code already exist.")
+        return value

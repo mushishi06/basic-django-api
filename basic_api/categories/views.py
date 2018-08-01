@@ -38,7 +38,7 @@ def category_detail(request, pk, format=None):
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = CategorySerializer(category, data=request.data)
+        serializer = CategorySerializer(category, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
